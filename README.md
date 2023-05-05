@@ -18,6 +18,10 @@ To run the HTTP service:
 
 `raku -I. bin/recman.raku serve`
 
+To list available dists that match a name:
+
+`raku -I. bin/recman.raku list MyModule`
+
 To remove a dist from recman:
 
 `raku -I. bin/recman.raku remove MyModule:ver<0.1>:auth<author>:api<>`
