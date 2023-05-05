@@ -1,0 +1,6 @@
+use Test;
+use Recman;
+
+pass "replace me";
+
+done-testing;

@@ -1,0 +1,31 @@
+{
+  "auth": "github:hythm7",
+  "authors": [
+    "Haytham Elganiny"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+    "Libarchive",
+    "DB::SQLite",
+    "Cro::HTTP"
+
+  ],
+  "description": "Simple recommendation manager",
+  "license": "Artistic-2.0",
+  "name": "recman-simple",
+  "perl": "6.d",
+  "provides": {
+    "Recman":          "lib/Recman.rakumod",
+    "Recman::DB":      "lib/Recman/DB.rakumod"
+  },
+  "resources": [
+	  "db/recman.sqlite"
+		],
+  "source-url": "https://github.com/hythm7/recman-simple",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}
