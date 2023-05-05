@@ -1,12 +1,12 @@
 NAME
 ====
 
-simple-recman - a very simple recommendation manager for Raku dists.
+recman-simple - simple recommendation manager for Raku dists.
 
 
 Overview
 ========
-simple-recman purpose is to process raku dists archives, extract the META6 information and populate an sqlite database. these META6 info can be served via HTTP, so a request like `curl http://localhost/meta/recommend/MyModule` will return the META6 info for MyModule.
+recman-simple purpose is to process raku dists archives, extract the META6 information and populate an sqlite database. these META6 info can be served via HTTP, so a request like `curl http://localhost/meta/recommend/MyModule` will return the META6 info for MyModule.
 
 To add a raku dist archive to recman:
 
