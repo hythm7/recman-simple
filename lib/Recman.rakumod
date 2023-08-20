@@ -40,6 +40,16 @@ method recommend (
 
   return not-found unless @candy;
 
+  # because v0.2.1 ~~ v0.2
+  # to be able to recommend exact v0.2
+  if %spec<ver>:exists {
+    @candy .= grep( -> %candy { %candy<ver> ~~ %spec<ver> } ) unless %spec<ver>.contains( / <[*+-]> / );
+  }
+
+  if %spec<api>:exists {
+    @candy .= grep( -> %candy { %candy<api> ~~ %spec<api> } ) unless %spec<api>.contains( / <[*+-]> / );
+  }
+
   @candy.reduce( &reduce-latest ).<meta>;
 
 }
