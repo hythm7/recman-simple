@@ -86,8 +86,6 @@ method search (
     sort-latest( %left, %right );
   }); 
 
-  say @candy.squish: as => *.<name> if $latest;
-
   @candy .= squish: as => *.<name> if $latest;
 
   @candy .= head( $count ) if $count;
