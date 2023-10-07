@@ -61,8 +61,9 @@ method search (
     Str   :$ver,
     Str   :$auth,
     Str   :$api,
-    Str   :$count,
+    Str   :$latest,
     Str   :$relaxed,
+    Str   :$count,
 
   ) {
 
@@ -81,9 +82,13 @@ method search (
   @candy .= sort( -> %left, %right {
     quietly ( %right<name> ~~ / :i ^ $name / ) cmp ( %left<name> ~~ / :i ^ $name / ) || 
     quietly ( %right<name> ~~ / :i   $name / ) cmp ( %left<name> ~~ / :i   $name / ) ||
-    %left<name> cmp %right<name>                                                   ||
+    %left<name> cmp %right<name>                                                     ||
     sort-latest( %left, %right );
   }); 
+
+  say @candy.squish: as => *.<name> if $latest;
+
+  @candy .= squish: as => *.<name> if $latest;
 
   @candy .= head( $count ) if $count;
 
@@ -150,9 +155,9 @@ method !routes ( ) {
 
     }
 
-    get -> 'meta', 'search', Str:D $name, Str :$ver, Str :$auth, Str :$api, Str :$relaxed, :$count {
+    get -> 'meta', 'search', Str:D $name, Str :$ver, Str :$auth, Str :$api, Str :$relaxed, Str :$latest, :$count {
 
-      content 'applicationtext/json', self.search: :$name :$ver :$auth :$api, :$relaxed, :$count;
+      content 'applicationtext/json', self.search: :$name :$ver :$auth :$api, :$relaxed, :$latest, :$count;
 
     }
     get -> 'meta' {
